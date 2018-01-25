@@ -1,21 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>ini Adalah Show</title>
-</head>
-<body>
-	<h2>Ini contoh dari show</h2>
+@extends('layouts.app')
 
-	@if(count($posts) > 0)
-		<ul>
-			@foreach($posts as $post)
-				<a href="{{ route('post.show', $post['id']) }}"> <li>{{ $post['title'] }}</li> </a>
-				<!-- <li>{{ $post['title'] }}</li> -->
-			@endforeach
-		</ul>
-		@else
-		<p>data tidak masuk</p>
-	@endif
-</body>
-</html>
+@section('title')
+	Hamalan Data Post
+@endsection
+
+@section('content')
+	<h1>Halaman Posts</h1>
+
+    @if(count($posts) > 0)
+        <ul>
+            @foreach($posts as $post)
+                <a href="{{ route('post.show', $post['id']) }}"><li>{{ $post['title'] }}</li></a>
+            @endforeach
+        </ul>
+        @else
+        <p>Data Tidak Ada</p>
+    @endif
+@endsection
